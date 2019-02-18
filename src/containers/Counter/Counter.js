@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 
 import CounterControl from '../../components/CounterControl/CounterControl';
 import CounterOutput from '../../components/CounterOutput/CounterOutput';
+import * as actionTypes from '../../store/actions';
 
 class Counter extends Component {
     state = {
@@ -15,25 +16,25 @@ class Counter extends Component {
             case 'inc':
                 this.setState((prevState) => {
                     return {counter: prevState.counter + 1}
-                })
+                });
                 break;
             case 'dec':
                 this.setState((prevState) => {
                     return {counter: prevState.counter - 1}
-                })
+                });
                 break;
             case 'add':
                 this.setState((prevState) => {
                     return {counter: prevState.counter + value}
-                })
+                });
                 break;
             case 'sub':
                 this.setState((prevState) => {
                     return {counter: prevState.counter - value}
-                })
+                });
                 break;
         }
-    }
+    };
 
     render() {
         return (
@@ -65,12 +66,12 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onIncrementCounter: () => dispatch({type: 'INCREMENT'}),
-        onDecrementCounter: () => dispatch({type: 'DECREMENT'}),
-        onAddCounter: () => dispatch({type: 'ADD', val: 5}),
-        onSubtractCounter: () => dispatch({type: 'SUBTRACT', val: 5}),
-        onStoreResults: () => dispatch({type: 'STORE_RESULTS'}),
-        onDeleteResults: (id) => dispatch({type: 'DELETE_RESULTS', resultElementId: id }),
+        onIncrementCounter: () => dispatch({type: actionTypes.INCREMENT}),
+        onDecrementCounter: () => dispatch({type: actionTypes.DECREMENT}),
+        onAddCounter: () => dispatch({type: actionTypes.ADD, val: 5}),
+        onSubtractCounter: () => dispatch({type: actionTypes.SUBTRACT, val: 5}),
+        onStoreResults: () => dispatch({type: actionTypes.STORE_RESULTS}),
+        onDeleteResults: (id) => dispatch({type: actionTypes.DELETE_RESULTS, resultElementId: id }),
     }
 };
 
