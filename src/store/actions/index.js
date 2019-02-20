@@ -6,6 +6,6 @@ export {
 } from './counter';
 
 export {
-    storeResult,
-    deleteResult
+    storeResults,
+    deleteResults
 } from './results';
